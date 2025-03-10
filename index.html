@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="portfolioApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio SPA</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="MainController">
+    <div class="sidebar">
+        <h1 class="portfolio-title">My Portfolio</h1>
+        <img src="lukhi.png" alt="Your Photo">
+        <h1>SUJAL LUKHI</h1>
+        <p>IT Engineer</p>
+    </div>
+    <div class="content">
+        <div class="navbar">
+            <a ng-click="setPage('personal')">Personal Details</a>
+            <a ng-click="setPage('education')">Education</a>
+            <a ng-click="setPage('certificates')">Certificates</a>
+            <a ng-click="setPage('experience')">Experience</a>
+            <a ng-click="setPage('skills')">Skills</a>
+        </div>
+        <div class="view-container">
+            <div ng-show="currentPage === 'personal'">
+                <h2>Personal Details</h2>
+                <p><strong>Name:</strong> Sujal Lukhi</p>
+                <p><strong>Email:</strong> sujallukhi5@gmail.com</p>
+                <p><strong>Phone:</strong> +91-9313684573</p>
+                <p><strong>Address:</strong> F/208 narayan residency nr.gokul bunglows nikol, A hmedabad</p>
+            </div>
+            <div ng-show="currentPage === 'education'">
+                <h2>Education</h2>
+                <p><strong>Degree:</strong> Bechelor of Engineer in Information Technology</p>
+                <p><strong>University:</strong> Sal Engineering & Technical Institute</p>
+                <p><strong>Graduation Year:</strong> 2026</p>
+            </div>
+            <div ng-show="currentPage === 'certificates'">
+                <h2>Certificates</h2>
+                <ul>
+                    <li>Certified Full-Stack Developer - 2021</li>
+                    <li>Cloud Computing Certification - 2022</li>
+                    <li>Advanced AngularJS Developer - 2023</li>
+                </ul>
+            </div>
+            <div ng-show="currentPage === 'experience'">
+                <h2>Experience</h2>
+                <ul>
+                    <li>Software Engineer at Google (2022 - Present)</li>
+                    <li>Frontend Developer at Microsoft (2020 - 2022)</li>
+                    <li>Intern at Amazon Web Services (2019 - 2020)</li>
+                </ul>
+            </div>
+            <div ng-show="currentPage === 'skills'">
+                <h2>Skills</h2>
+                <p><strong>Technical Skills:</strong> JavaScript, AngularJS, React, Node.js, Python</p>
+                <p><strong>Soft Skills:</strong> Leadership, Communication, Problem-Solving</p>
+                <p><strong>Other Skills:</strong> UI/UX Design, Cloud Computing, DevOps</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        var app = angular.module('portfolioApp', []);
+        
+        app.controller('MainController', function($scope) {
+            $scope.currentPage = 'personal'; // Default Page
+            
+            $scope.setPage = function(page) {
+                $scope.currentPage = page;
+            };
+        });
+    </script>
+</body>
+</html>
